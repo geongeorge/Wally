@@ -1,0 +1,43 @@
+/** @format */
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap");
+
+body {
+  margin: 0;
+  font-family: "Inter", "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell",
+    "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: $honeydew;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+.container {
+  margin: 0 auto;
+  position: relative;
+  max-width: $m;
+  width: calc(100% - 40px);
+
+  @include s {
+    width: calc(100% - 80px);
+  }
+}
+
+input,
+button,
+textarea,
+link,
+select {
+  &:focus {
+    outline: 1px dotted $nightblue;
+    outline-offset: 2px;
+  }
+}

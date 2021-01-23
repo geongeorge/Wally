@@ -1,0 +1,54 @@
+/** @format */
+
+.text-input {
+  input,
+  textarea,
+  select {
+    border: 1px solid $nightblue;
+    background-color: rgba($skyblue, 0.2);
+  }
+
+  select {
+    padding: 4px;
+  }
+}
+
+.text-input__field {
+  display: block;
+  width: 100%;
+  resize: none;
+  height: 120px;
+}
+
+.text-input__options {
+  margin-top: 12px;
+}
+
+.text-input__controls {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  line-height: 26px;
+
+  > div {
+    margin-top: 10px;
+    display: flex;
+  }
+  input {
+    max-width: 70px;
+    padding: 3px;
+    margin-right: 8px;
+  }
+  label {
+    margin-right: 12px;
+  }
+}
+
+.color-picker {
+  position: relative;
+
+  .react-colorful {
+    position: absolute;
+    top: 110%;
+  }
+}

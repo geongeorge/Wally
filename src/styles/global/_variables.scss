@@ -1,0 +1,48 @@
+/** @format */
+
+$xs: 414px;
+$s: 768px;
+$m: 1023px;
+$l: 1440px;
+
+@mixin xs {
+  @media (min-width: #{$xs}) {
+    @content;
+  }
+}
+@mixin s {
+  @media (min-width: #{$s}) {
+    @content;
+  }
+}
+@mixin m {
+  @media (min-width: #{$m}) {
+    @content;
+  }
+}
+@mixin l {
+  @media (min-width: #{$l}) {
+    @content;
+  }
+}
+// Custom devices
+@mixin rwd($screen) {
+  @media (min-width: $screen+"px") {
+    @content;
+  }
+}
+
+// @include lg {
+//   ----Styles----
+// }
+
+/* Colors */
+
+$black: #000;
+$white: #fff;
+
+$red: #e63946;
+$honeydew: #f1faee;
+$skyblue: #a8dadc;
+$blue: #457b9d;
+$nightblue: #1d3557;
