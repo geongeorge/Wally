@@ -1,6 +1,6 @@
 /** @format */
 import { useSelector } from "react-redux";
-import { createRef, useCallback, useEffect, useState } from "react";
+import { createRef, useCallback, useEffect } from "react";
 import get from "lodash/get";
 
 import canvasTxt from "canvas-txt";

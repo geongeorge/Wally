@@ -1,6 +1,5 @@
 /** @format */
 
-import App from "../components/App";
 import TextInput from "../components/TextInput";
 import WallCanvas from "../components/WallCanvas";
 
