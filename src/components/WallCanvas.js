@@ -21,7 +21,7 @@ const drawCanvas = (ref, text, props) => {
 
   canvasTxt.font = "Verdana";
   canvasTxt.fontSize = get(props, "fontSize", 20);
-  canvasTxt.align = "left";
+  canvasTxt.align = get(props, "align", "center");
   canvasTxt.debug = false;
 
   canvasTxt.drawText(

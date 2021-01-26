@@ -26,6 +26,8 @@ const sizeOptions = [
   },
 ];
 
+const alignments = ["center", "right", "left"]
+
 function TextInput() {
   const dispatch = useDispatch();
   const text = useSelector((state) => state.text);
@@ -54,6 +56,10 @@ function TextInput() {
       type: "setProps",
       payload: { ...props },
     });
+  };
+
+  const setAlign = ({ target }) => {
+    setProps({ align: target.value });
   };
 
   const changeSizeOption = ({ target }) => {
@@ -176,6 +182,15 @@ function TextInput() {
                 setProps({ fontSize: target.value });
               }}
             ></input>
+
+          <label>Align: </label>
+            <select value={ canvasProps.align } onChange={setAlign}>
+              {alignments.map((el, index) => (
+                <option value={ el } key={ index }>
+                  { el }
+                </option>
+              ))}
+            </select>
           </div>
         </section>
       </div>

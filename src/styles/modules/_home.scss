@@ -3,8 +3,13 @@
 .panel {
   display: flex;
   gap: 10px;
+  flex-direction: column;
 
   > div {
     width: 100%;
+  }
+
+  @include s {
+    flex-direction: row;
   }
 }

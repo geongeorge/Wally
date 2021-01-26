@@ -6,6 +6,7 @@ const base = {
   textColor: "#f1faee",
   bgColor: "#1d3557",
   fontSize: 20,
+  align: "center",
 };
 
 const reducer = (state = base, action) => {
