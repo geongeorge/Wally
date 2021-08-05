@@ -19,7 +19,7 @@ const drawCanvas = (ref, text, props) => {
 
   ctx.fillStyle = get(props, "textColor", "#fff");
 
-  canvasTxt.font = "Verdana";
+  canvasTxt.font = get(props, "font", 'verdana');
   canvasTxt.fontSize = get(props, "fontSize", 20);
   canvasTxt.align = get(props, "align", "center");
   canvasTxt.debug = false;

@@ -5,7 +5,8 @@ const base = {
   height: 900,
   textColor: "#f1faee",
   bgColor: "#1d3557",
-  fontSize: 20,
+  fontSize: 70,
+  font: 'Open Sans',
   align: "center",
 };
 
@@ -13,6 +14,11 @@ const reducer = (state = base, action) => {
   const { payload, type } = action;
 
   switch (type) {
+    case "setFont":
+      return {
+        ...state,
+        font: payload,
+      };
     case "setText":
       return {
         ...state,

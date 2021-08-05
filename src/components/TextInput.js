@@ -1,7 +1,7 @@
 /** @format */
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-
+import FontPicker from "font-picker-react";
 import { HexColorPicker } from "react-colorful";
 import "react-colorful/dist/index.css";
 
@@ -28,10 +28,15 @@ const sizeOptions = [
 
 const alignments = ["center", "right", "left"]
 
+const RELOAD_TEXT = "reload"
+const RELOAD_LOAD_TEXT = "loading.."
+
 function TextInput() {
   const dispatch = useDispatch();
   const text = useSelector((state) => state.text);
   const canvasProps = useSelector((state) => state);
+  const [activeFont, setActiveFont] = useState("Open Sans")
+  const [reloadText, setReloadText] = useState(RELOAD_TEXT)
 
   const [sizeOption, setSizeOption] = useState(0);
   const [isCustomSize, setIsCustomSize] = useState(false);
@@ -57,6 +62,13 @@ function TextInput() {
       payload: { ...props },
     });
   };
+
+  useEffect(()=> {
+    dispatch({
+      type: "setFont",
+      payload: activeFont,
+    });
+  }, [activeFont])
 
   const setAlign = ({ target }) => {
     setProps({ align: target.value });
@@ -172,6 +184,28 @@ function TextInput() {
                 />
               )}
             </div>
+          </div>
+          <div style={{ margin: '20px 0'}}>
+           <span style={{ margin: '0 20px 0 0'}}>
+            <FontPicker
+              apiKey="AIzaSyAKhCTfMuBx_NSOHN1Lol27rGm2pN0-P48"
+              activeFontFamily={activeFont}
+              onChange={(nextFont) =>
+                  setActiveFont(nextFont.family)
+              }
+            />
+            </span>
+            <a href="/" onClick={(e) => {
+              console.log("reload", activeFont)
+              const tempFont = activeFont
+              setActiveFont('Open Sans')
+              setReloadText(RELOAD_LOAD_TEXT)
+              setTimeout(() =>{
+                setActiveFont(tempFont)
+                setReloadText(RELOAD_TEXT)
+              },1000)
+              e.preventDefault()
+            }}>{ reloadText }</a>
           </div>
           <div>
             <label>Font Size: </label>
